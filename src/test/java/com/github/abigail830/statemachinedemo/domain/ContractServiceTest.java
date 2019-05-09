@@ -31,23 +31,20 @@ public class ContractServiceTest {
         final Contract contract = new Contract("Consumer2", "Provider2", "Content2");
         contractService.addContract(contract);
 
-        final Contract newContract = new Contract("Consumer2", "Provider2", "NewContent2");
-        contractService.updateContract(newContract);
+        contract.setContent("NewContent2");
+        contractService.updateContract(contract);
 
         assertNotNull(contract.getStateMachineUUID());
-        assertEquals("SIGNING", newContract.getState());
+        assertEquals("SIGNING", contract.getState());
     }
 
     @Test
     public void confirmContract() throws Exception {
         final Contract contract = new Contract("Consumer3", "Provider3", "Content3");
         contractService.addContract(contract);
-
-        final Contract newContract = new Contract("Consumer3", "Provider3", "NewContent3");
-        contractService.updateContract(newContract);
-        contractService.confirmContract(newContract);
+        contractService.confirmContract(contract);
 
         assertNotNull(contract.getStateMachineUUID());
-        assertEquals("SIGNED", newContract.getState());
+        assertEquals("SIGNED", contract.getState());
     }
 }
