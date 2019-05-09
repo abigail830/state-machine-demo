@@ -1,12 +1,10 @@
 package com.github.abigail830.statemachinedemo.domain;
 
 
-import com.github.abigail830.statemachinedemo.domain.statemachine.ContractStates;
-import com.github.abigail830.statemachinedemo.domain.statemachine.Events;
 import lombok.*;
-import org.springframework.statemachine.StateMachine;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -30,6 +28,6 @@ public class Contract {
         this.content = content;
     }
 
-    StateMachine<ContractStates, Events> contractStatesEventsStateMachine;
+    UUID stateMachineUUID;
 
 }

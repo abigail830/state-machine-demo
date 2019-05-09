@@ -1,6 +1,7 @@
 package com.github.abigail830.statemachinedemo.domain.statemachine;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.messaging.Message;
 import org.springframework.statemachine.listener.StateMachineListenerAdapter;
 import org.springframework.statemachine.state.State;
 import org.springframework.statemachine.transition.Transition;
@@ -12,9 +13,14 @@ public class ContractStateMachineListener extends StateMachineListenerAdapter<Co
 
     @Override
     public void transition(Transition<ContractStates, Events> transition){
-        log.warn("ContractStates moved from:{} to:{}",
+        log.info("ContractStates moved from:{} to:{}",
                 ofNullableState(transition.getSource()),
                 ofNullableState(transition.getTarget()));
+    }
+
+    @Override
+    public void eventNotAccepted(Message<Events> event) {
+        log.error("Event not accepted: {}", event);
     }
 
     private Object ofNullableState(State s) {
