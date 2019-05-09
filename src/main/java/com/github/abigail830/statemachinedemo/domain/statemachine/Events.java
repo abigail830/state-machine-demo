@@ -1,0 +1,6 @@
+package com.github.abigail830.statemachinedemo.domain.statemachine;
+
+public enum Events {
+    SUBMIT_CONTRACT, UPDATE_CONTRACT, CONFIRM_CONSTRACT, CANCEL_CONTRACT,
+    PROVIDER_UNSIGN_CONTRACT, CONSUMER_UNSIGN_CONTRACT, CONFIRM_UNSIGN_CONTRACT
+}

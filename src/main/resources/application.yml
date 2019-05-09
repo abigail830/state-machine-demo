@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:StateMachineDemo;DB_CLOSE_DELAY=-1;MODE=MYSQL
+server:
+  port: 8080
+swagger:
+  enable: true
